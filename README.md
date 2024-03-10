@@ -26,6 +26,8 @@ import { ModalProvider } from 'react-native-input-modal';
 In your component, you can call the async function to show the modal and get the result.
 
 Text Input:
+<img width="2559" alt="Screenshot 2024-03-09 at 4 11 37 PM" src="https://github.com/themaxsmith/react-native-input-modal/assets/19381797/559aae85-4851-40b0-8f32-38da28dce2b9">
+
 
 ```js
 import { useModal } from 'react-native-input-modal';
@@ -43,6 +45,8 @@ console.log('Result:', result);
 ```
 
 Get Options (Button):
+<img width="2559" alt="Screenshot 2024-03-09 at 4 11 19 PM" src="https://github.com/themaxsmith/react-native-input-modal/assets/19381797/e40dd428-f1d2-432b-b644-0c0a2173d278">
+
 
 ```js
 import { useModal } from 'react-native-input-modal';
@@ -58,6 +62,7 @@ const value = await getPickOption({
 ```
 
 Get Options (Select):
+<img width="2557" alt="Screenshot 2024-03-09 at 4 11 29 PM" src="https://github.com/themaxsmith/react-native-input-modal/assets/19381797/6cead7c8-d10b-4514-9244-0679ddce6633">
 
 ```js
 import { useModal } from 'react-native-input-modal';
@@ -72,7 +77,8 @@ const value = await getSelectOption({
   ],
 });
 ```
-
+## Usage (Advance)
+The UI is fully customizable by passing a ModalStyles object to the ModalProvider. You can style any button or component of the UI 
 ## Contributing
 
 Feel free to contribute to this project by creating issues or pull requests. This is my first open-source project, so I'm open to any suggestions or help.
