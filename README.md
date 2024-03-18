@@ -2,6 +2,8 @@
 
 An easy-to-use pure JavaScript React Native Input/Dialog Modal
 
+Fully customizable Model using async-await imperative logic
+
 ## Installation
 
 ```sh
@@ -79,6 +81,7 @@ const value = await getSelectOption({
 ```
 ## Usage (Advance)
 The UI is fully customizable by passing a ModalStyles object to the ModalProvider. You can style any button or component of the UI 
+
 ## Contributing
 
 Feel free to contribute to this project by creating issues or pull requests. This is my first open-source project, so I'm open to any suggestions or help.
