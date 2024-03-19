@@ -2,7 +2,16 @@
 
 An easy-to-use pure JavaScript React Native Input/Dialog Modal
 
-Fully customizable Model using async-await imperative logic
+Fully customizable Model using async-await imperative logic. Compatible with all platforms (iOS, Android, Web).
+
+[x] Supports Text Input
+[x] Supports Option Picker
+[x] Supports Button Select
+
+### Roadmap
+
+[ ] Date/Time Picker
+[ ] Custom Components
 
 ## Installation
 
@@ -30,11 +39,10 @@ In your component, you can call the async function to show the modal and get the
 Text Input:
 <img width="2559" alt="Screenshot 2024-03-09 at 4 11 37 PM" src="https://github.com/themaxsmith/react-native-input-modal/assets/19381797/559aae85-4851-40b0-8f32-38da28dce2b9">
 
-
 ```js
 import { useModal } from 'react-native-input-modal';
 
-// ...
+// ... Some function in any component
 
 const { getTextInput } = useModal();
 
@@ -43,15 +51,18 @@ const value = await getTextInput({
   placeholder: 'Enter any value',
 });
 
+// ... ether null or the value entered
+
 console.log('Result:', result);
 ```
 
 Get Options (Button):
 <img width="2559" alt="Screenshot 2024-03-09 at 4 11 19 PM" src="https://github.com/themaxsmith/react-native-input-modal/assets/19381797/e40dd428-f1d2-432b-b644-0c0a2173d278">
 
-
 ```js
 import { useModal } from 'react-native-input-modal';
+
+const { getPickOption } = useModal();
 
 const value = await getPickOption({
   title: 'Select a value',
@@ -69,6 +80,8 @@ Get Options (Select):
 ```js
 import { useModal } from 'react-native-input-modal';
 
+const { getSelectOption } = useModal();
+
 const value = await getSelectOption({
   title: 'Select a value',
   selected: '1', // Optional
@@ -79,8 +92,10 @@ const value = await getSelectOption({
   ],
 });
 ```
+
 ## Usage (Advance)
-The UI is fully customizable by passing a ModalStyles object to the ModalProvider. You can style any button or component of the UI 
+
+The UI is fully customizable by passing a ModalStyles object to the ModalProvider. You can style any button or component of the UI
 
 ## Contributing
 
