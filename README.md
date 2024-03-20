@@ -51,7 +51,7 @@ const value = await getTextInput({
   placeholder: 'Enter any value',
 });
 
-// ... ether null or the value entered
+// ... returns: null or the value entered
 
 console.log('Result:', result);
 ```

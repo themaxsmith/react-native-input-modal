@@ -7,15 +7,20 @@
  *
  */
 // @ts-nocheck
-import React, { useState, createContext, useContext, useMemo } from 'react';
+import { createContext, useContext, useMemo, useState } from 'react';
 import {
-  View,
+  Modal,
+  ScrollView,
   Text,
   TextInput,
   TouchableHighlight,
   TouchableWithoutFeedback,
-  Modal,
+  View,
 } from 'react-native';
+import {
+  SafeAreaProvider,
+  useSafeAreaInsets,
+} from 'react-native-safe-area-context';
 export type AwaitableComponentStatus =
   | 'idle'
   | 'awaiting'
@@ -115,6 +120,7 @@ function ModalContainer({
   const handleCancel = () => {
     onCancel(null);
   };
+  const safeInserts = useSafeAreaInsets();
   return (
     <View style={ModalStyles?.modalStyle || styles.modal}>
       <TouchableWithoutFeedback
@@ -125,12 +131,24 @@ function ModalContainer({
       >
         <View style={styles.toucableDismiss} />
       </TouchableWithoutFeedback>
-      <View style={ModalStyles?.containerStyle || styles.contentContainer}>
+      <View
+        style={[
+          {
+            paddingBottom: safeInserts.bottom,
+            paddingLeft: safeInserts.left,
+            paddingLeft: safeInserts.right,
+          },
+          ModalStyles?.containerStyle || styles.contentContainer,
+        ]}
+      >
         <Text style={ModalStyles?.titleTextStyle || styles.titleText}>
           {args?.title}
         </Text>
         {args?.type === 'select' || args?.type === 'pick' ? (
-          <>
+          <ScrollView
+            style={styles.contentScrollViewChildern || {}}
+            contentContainerStyle={styles.contentScrollViewChildern}
+          >
             {args?.options.map((option: ModalSelectOption, index: number) => {
               if (args?.type === 'select') {
                 return (
@@ -179,7 +197,7 @@ function ModalContainer({
                 </TouchableHighlight>
               );
             })}
-          </>
+          </ScrollView>
         ) : (
           <View>
             <TextInput
@@ -336,12 +354,14 @@ const ModalProvider = ({
         transparent={true}
         supportedOrientations={['portrait', 'landscape']}
       >
-        <ModalContainer
-          onSubmit={resolve}
-          onCancel={reject}
-          args={args}
-          ModalStyles={ModalStyles}
-        />
+        <SafeAreaProvider>
+          <ModalContainer
+            onSubmit={resolve}
+            onCancel={reject}
+            args={args}
+            ModalStyles={ModalStyles}
+          />
+        </SafeAreaProvider>
       </Modal>
     </ModalContext.Provider>
   );
@@ -376,6 +396,8 @@ const styles = {
     padding: 10,
     borderTopLeftRadius: 10,
     borderTopRightRadius: 10,
+    display: 'flex',
+    maxHeight: '100%',
   },
   titleText: {
     fontSize: 20,
@@ -416,6 +438,11 @@ const styles = {
     color: 'black',
     textAlign: 'left',
   },
+  // make scroll view flex full container height if needed
+  contentScrollViewStyle: {
+    flex: 1,
+  },
+  contentScrollViewChildern: {},
 };
 
 export { ModalProvider, useModal };

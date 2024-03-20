@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import { StyleSheet, View, Text, Button } from 'react-native';
+import { Button, StyleSheet, Text, View } from 'react-native';
 import { ModalProvider, useModal } from 'react-native-input-modal';
 export default function App() {
   return (
