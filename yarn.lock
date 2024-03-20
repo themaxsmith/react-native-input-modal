@@ -15645,6 +15645,7 @@ __metadata:
     react: 18.2.0
     react-native: 0.72.6
     react-native-builder-bob: ^0.23.2
+    react-native-safe-area-context: ">= 3.0.0"
     release-it: ^15.0.0
     tailwindcss: ^3.4.0
     ts-jest: ^29.1.2
@@ -15652,9 +15653,18 @@ __metadata:
   peerDependencies:
     react: "*"
     react-native: "*"
-    react-native-safe-area-context: ">= 3.0.0"
   languageName: unknown
   linkType: soft
+
+"react-native-safe-area-context@npm:>= 3.0.0":
+  version: 4.9.0
+  resolution: "react-native-safe-area-context@npm:4.9.0"
+  peerDependencies:
+    react: "*"
+    react-native: "*"
+  checksum: 120aefb77766a37e81c5a844d7e1493afea35461c30df5ca903c6b6e2fc6694e2496d433550a2eda872ef8384a36ecf8529a617cb19acbeebd37d78d7aa7b17e
+  languageName: node
+  linkType: hard
 
 "react-native-safe-area-context@npm:^3.3.2":
   version: 3.4.1
