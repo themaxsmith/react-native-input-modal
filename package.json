@@ -1,7 +1,7 @@
 {
   "name": "react-native-input-modal",
   "version": "0.1.2",
-  "description": "A easy to use pure JavaScript React Native Input/Dialog Modal  ",
+  "description": "A easy to use pure JavaScript React Native Input/Dialog Modal",
   "main": "lib/commonjs/index",
   "module": "lib/module/index",
   "types": "lib/typescript/src/index.d.ts",
@@ -37,7 +37,13 @@
   "keywords": [
     "react-native",
     "ios",
-    "android"
+    "android",
+    "web",
+    "modal",
+    "input",
+    "dialog",
+    "prompt",
+    "alert"
   ],
   "repository": {
     "type": "git",
