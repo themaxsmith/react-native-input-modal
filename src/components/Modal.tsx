@@ -139,8 +139,8 @@ function ModalContainer({
         style={[
           {
             paddingBottom: safeInserts.bottom,
-            paddingLeft: safeInserts.left,
-            paddingLeft: safeInserts.right,
+            paddingLeft: safeInserts.left ?? 5,
+            paddingRight: safeInserts.right ?? 5,
           },
           ModalStyles?.containerStyle || styles.contentContainer,
         ]}
