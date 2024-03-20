@@ -47,7 +47,7 @@ export default function SafeAreaViewFixed({
           paddingRight:
             defaultEdges || edges?.includes('right') ? insets.right : undefined,
         },
-        style
+        style,
       )}
       {...rest}
     >

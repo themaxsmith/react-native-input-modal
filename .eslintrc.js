@@ -1,12 +1,9 @@
 // eslint file for JSX
 module.exports = {
-  extends: 'airbnb',
-  parser: 'babel-eslint',
+  parser: '@babel/eslint-parser',
   rules: {
-    'react/jsx-filename-extension': [
-      1,
-      { extensions: ['.js', '.jsx', '.ts', '.tsx'] },
-    ],
+    'react/jsx-filename-extension': [0],
     'react/react-in-jsx-scope': 'off',
   },
+  ignorePatterns: ['/*', '!/src'],
 };

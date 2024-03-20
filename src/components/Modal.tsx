@@ -1,4 +1,3 @@
-/* eslint-disable react-native/no-inline-styles */
 /**
  * Copyright (c) Maxwell Smith and other maintainers
  *
@@ -21,6 +20,7 @@ import {
   SafeAreaProvider,
   useSafeAreaInsets,
 } from 'react-native-safe-area-context';
+
 export type AwaitableComponentStatus =
   | 'idle'
   | 'awaiting'
@@ -84,11 +84,15 @@ export function useAwaitableComponent() {
     setData({ status: 'idle', resolve: null, reject: null });
   };
 
-  const handleExecute = async (args: any) => {
-    return new Promise((resolve, reject) => {
-      setData({ status: 'awaiting', resolve, reject, args });
+  const handleExecute = async (args: any) =>
+    new Promise((resolve, reject) => {
+      setData({
+        status: 'awaiting',
+        resolve,
+        reject,
+        args,
+      });
     });
-  };
   return [
     data.status,
     handleExecute,
@@ -262,19 +266,19 @@ const ModalContext = createContext<{
   getPickOption: async () => null,
 });
 
-const ModalProvider = ({
+function ModalProvider({
   children,
   ModalStyles,
 }: {
   children: any;
   ModalStyles?: ModalStyles;
-}) => {
+}) {
   const [status, execute, resolve, reject, reset, args] =
     useAwaitableComponent();
   const showModal = status === 'awaiting';
 
-  const fn = useMemo(() => {
-    return {
+  const fn = useMemo(
+    () => ({
       getTextInput: async ({
         title,
         placeholder,
@@ -343,15 +347,16 @@ const ModalProvider = ({
       },
 
       // ...
-    };
-  }, [execute, reset]);
+    }),
+    [execute, reset]
+  );
 
   return (
     <ModalContext.Provider value={fn}>
       {children}
       <Modal
         visible={showModal}
-        transparent={true}
+        transparent
         supportedOrientations={['portrait', 'landscape']}
       >
         <SafeAreaProvider>
@@ -365,7 +370,7 @@ const ModalProvider = ({
       </Modal>
     </ModalContext.Provider>
   );
-};
+}
 
 const useModal = () => {
   const context = useContext(ModalContext);

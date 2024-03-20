@@ -1,7 +1,10 @@
 import * as React from 'react';
 
-import { Button, StyleSheet, Text, View } from 'react-native';
+import {
+  Button, StyleSheet, Text, View,
+} from 'react-native';
 import { ModalProvider, useModal } from 'react-native-input-modal';
+
 export default function App() {
   return (
     <ModalProvider>
@@ -27,7 +30,10 @@ export function TestComponent() {
           setResult(Number(value));
         }}
       />
-      <Text>Result: {result}</Text>
+      <Text>
+        Result:
+        {result}
+      </Text>
 
       <Button
         title="Show Select Modal"
@@ -44,7 +50,10 @@ export function TestComponent() {
           setResult2(value as string);
         }}
       />
-      <Text>Result: {result2}</Text>
+      <Text>
+        Result:
+        {result2}
+      </Text>
       <Button
         title="Show Pick Modal"
         onPress={async () => {
@@ -59,7 +68,10 @@ export function TestComponent() {
           setResult3(value as string);
         }}
       />
-      <Text>Result: {result3}</Text>
+      <Text>
+        Result:
+        {result3}
+      </Text>
     </View>
   );
 }
