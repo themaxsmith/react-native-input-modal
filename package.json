@@ -64,6 +64,7 @@
     "@types/react": "~17.0.21",
     "@types/react-native": "0.70.0",
     "babel-eslint": "^10.1.0",
+    "babel-jest": "^29.7.0",
     "commitlint": "^17.0.2",
     "concurrently": "^8.2.2",
     "del-cli": "^5.0.0",
