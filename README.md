@@ -5,8 +5,8 @@ An easy-to-use pure JavaScript React Native Input/Dialog Modal
 Fully customizable Model using async-await imperative logic. Compatible with all platforms (iOS, Android, Web).
 
 - [x] Supports Text Input
-- [x] Supports Option Picker
-- [x] Supports Button Select
+- [x] Supports Option Select
+- [x] Supports Button Picker
 
 ## Installation
 
