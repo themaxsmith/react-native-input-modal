@@ -91,7 +91,8 @@
   },
   "peerDependencies": {
     "react": "*",
-    "react-native": "*"
+    "react-native": "*",
+    "react-native-safe-area-context": ">= 3.0.0"
   },
   "workspaces": [
     "example"
@@ -165,8 +166,5 @@
         }
       ]
     ]
-  },
-  "dependencies": {
-    "react-native-safe-area-context": "^4.9.0"
   }
 }
